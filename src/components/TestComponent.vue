@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-sheet class="mx-auto" max-width="400">
-      <v-form @submit.prevent>
+      <v-form @submit.prevent ref="form">
         <v-text-field v-model="userData.name" class="text-black" label="Name" append-inner-icon="mdi-account"
           variant="outlined" color="blue" :counter="20" :rules="dataValidationRules.name" required>
         </v-text-field>
@@ -81,11 +81,11 @@ export default {
       this.userData.email='';
       this.userData.password='';
       this.userData.phNumber='';
-      this.resetValidation();
+      this.reset();
       },
-      resetValidation(){
-      this.$refs.form.resetValidation()
-      }      
+      reset () {
+        this.$refs.form.reset()
+      },      
   }
 }
 
